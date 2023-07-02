@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Validation Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <form name="myForm" novalidate>
+        <label>Name:</label>
+        <input type="text" ng-model="name" name="name" required>
+        <span ng-show="myForm.name.$error.required && myForm.name.$touched">Name is required.</span>
+        
+        <br>
+        
+        <label>Email:</label>
+        <input type="email" ng-model="email" name="email" required>
+        <span ng-show="myForm.email.$error.required && myForm.email.$touched">Email is required.</span>
+        <span ng-show="myForm.email.$error.email && myForm.email.$touched">Invalid email format.</span>
+        
+        <br>
+        
+        <label>Password:</label>
+        <input type="password" ng-model="password" name="password" required minlength="8">
+        <span ng-show="myForm.password.$error.required && myForm.password.$touched">Password is required.</span>
+        <span ng-show="myForm.password.$error.minlength && myForm.password.$touched">Password should be at least 8 characters long.</span>
+        
+        <br>
+        
+        <label>Confirm Password:</label>
+        <input type="password" ng-model="confirmPassword" name="confirmPassword" required ng-pattern="password">
+        <span ng-show="myForm.confirmPassword.$error.required && myForm.confirmPassword.$touched">Confirm Password is required.</span>
+        <span ng-show="myForm.confirmPassword.$error.pattern && myForm.confirmPassword.$touched">Passwords do not match.</span>
+        
+        <br>
+        
+        <button type="submit" ng-disabled="myForm.$invalid">Submit</button>
+    </form>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('myController', function ($scope) {
+                // Form submission logic can be implemented here
+            });
+    </script>
+</body>
+</html>

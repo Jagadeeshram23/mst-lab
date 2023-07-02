@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+  <h1>AngularJS Directives and Events Example</h1>
+
+  <input type="text" ng-model="name" placeholder="Enter your name">
+  <button ng-click="greet()">Greet</button>
+
+  <div ng-show="showMessage">{{message}}</div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+      $scope.showMessage = false;
+
+      $scope.greet = function() {
+        if ($scope.name) {
+          $scope.message = 'Hello, ' + $scope.name + '!';
+          $scope.showMessage = true;
+        }
+      };
+    });
+  </script>
+</body>
+
+</html>

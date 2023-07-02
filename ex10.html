@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Records Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="studentApp" ng-controller="studentController">
+    <h1>Student Records Application</h1>
+
+    <h2>Add Student</h2>
+    <form ng-submit="addStudent()">
+        <input type="text" ng-model="newStudent.name" placeholder="Name" required>
+        <input type="number" ng-model="newStudent.age" placeholder="Age" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Student List</h2>
+    <ul>
+        <li ng-repeat="student in students">
+            {{ student.name }} (Age: {{ student.age }})
+            <button ng-click="deleteStudent(student)">Delete</button>
+        </li>
+    </ul>
+
+    <script>
+        angular.module('studentApp', [])
+            .controller('studentController', function ($scope) {
+                $scope.students = [];
+
+                // Add a new student
+                $scope.addStudent = function () {
+                    $scope.students.push({
+                        name: $scope.newStudent.name,
+                        age: $scope.newStudent.age
+                    });
+                    $scope.newStudent = {}; // Clear the form
+                };
+
+                // Delete a student
+                $scope.deleteStudent = function (student) {
+                    var index = $scope.students.indexOf(student);
+                    if (index !== -1) {
+                        $scope.students.splice(index, 1);
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

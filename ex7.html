@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+	</script>
+</head>
+
+<body>
+	<div ng-app="gfg"
+		ng-controller="myCtrl">
+		<input ng-model="name">
+		<h1>{{name}}</h1>
+	</div>
+	<p>
+		The property "organization" was made in
+		the controller, and can be referred to
+		in the view by using the {{ }} brackets.
+	</p>
+	<script>
+		var geeks = angular.module("gfg", []);
+		geeks.controller("myCtrl", function($scope) {
+			$scope.name = "GeeksforGeeks";
+		});
+	</script>
+</body>
+</html>
