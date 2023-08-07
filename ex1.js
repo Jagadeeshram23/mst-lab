@@ -10,3 +10,8 @@ const server = http.createServer(function(req,res){
 server.listen(9000, ()=> {
     console.log("running");
 })
+
+
+//command to run: node ex1.js
+
+//localhost:9000
