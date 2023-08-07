@@ -1,4 +1,23 @@
-module.exports= {add: (a, b) => a + b,
-sub: (a, b) => a - b,
-mul: (a, b) => a * b,
-div: (a,b) => a/b};
+function add (a, b){
+    console.log(a+'+'+b+'='+(a+b));
+}
+
+
+function sub (a, b){
+    console.log(a+'-'+b+'='+(a-b));
+}
+
+
+function mul (a, b){
+    console.log(a+'*'+b+'='+(a*b));
+}
+
+
+function div (a, b){
+    console.log(a+'/'+b+'='+(a/b));
+}
+
+module.exports= {add, 
+sub,
+mul,
+div};
