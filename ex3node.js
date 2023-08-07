@@ -15,3 +15,6 @@ switch(op){
     case "4":
         cal.div(a,b);break;
 }
+
+//command to run: node ex3node.js
+
